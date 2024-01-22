@@ -1,0 +1,98 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:700");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+@font-face {
+  font-family: "Circular Std-Medium";
+  src: url("https://anima-uploads.s3.amazonaws.com/projects/624183fffad2e6bd51ffccfa/fonts/circular-std-medium-500.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Circular Std-Book";
+  src: url("https://anima-uploads.s3.amazonaws.com/5bad6b173b8df5000aac518c/CircularStd-Book.otf") format("opentype");
+}
+
+
+.pt_button {
+  background-color: #6966FF;
+  color: #fff;
+  border: #6966FF;
+  position: relative;
+  padding: 10px 20px;
+  right: 20px;
+  top: 80px;
+  left: 170px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: "Circular Std-Medium";
+}
+
+.pt_button:focus {
+  outline:none; /* Rimuove il colore di sfondo dei bordi quando il tasto è attivo (focus) */
+}
+.pt_button:hover {
+  background-color: white; /* Cambia il colore di sfondo al passaggio del cursore */
+  color: black;
+}
+
+.customer_button {
+  background-color: #6966FF;
+  color: #fff;
+  border: #6966FF;
+  position: relative;
+  padding: 10px 20px;
+  right: 20px;
+  top: 80px;
+  left: 170px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: "Circular Std-Medium";
+}
+
+.customer_button:focus {
+  outline:none; /* Rimuove il colore di sfondo dei bordi quando il tasto è attivo (focus) */
+}
+.customer_button:hover {
+  background-color: white; /* Cambia il colore di sfondo al passaggio del cursore */
+  color: black;
+}
+
+.signup_button {
+  background-color: #6966FF;
+  color: #fff;
+  border: #6966FF;
+  position: relative;
+  padding: 10px 20px;
+  top: 0px;
+  left: 680px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: "Circular Std-Medium";
+}
+
+.signup_button:focus {
+  outline:none; /* Rimuove il colore di sfondo dei bordi quando il tasto è attivo (focus) */
+}
+.signup_button:hover {
+  background-color: white; /* Cambia il colore di sfondo al passaggio del cursore */
+  color: black;
+}

@@ -1,0 +1,15 @@
+:root {
+  --texticonprimary: rgba(255, 255, 255, 1);
+  --accentbrand: rgba(105, 102, 255, 1);
+  --backgroundsecondary: rgba(57, 57, 83, 1);
+  --texticonsecondary: rgba(200, 199, 216, 1);
+  --accentgreen: rgba(22, 181, 127, 1);
+  --backgroundsecondary-hover: rgba(79, 76, 100, 1);
+  --accentbrand-hover: rgba(108, 131, 255, 1);
+  --desktop-label-font-family: "CircularStd-Medium", Helvetica;
+  --desktop-label-font-weight: 500;
+  --desktop-label-font-size: 16px;
+  --desktop-label-letter-spacing: -0.17600000381469727px;
+  --desktop-label-line-height: 24px;
+  --desktop-label-font-style: normal;
+}

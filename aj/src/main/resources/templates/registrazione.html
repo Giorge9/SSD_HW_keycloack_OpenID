@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <link th:href="@{./css/main.css}" rel="stylesheet" />
+    <link th:href="@{./css/main2.css}" rel="stylesheet" />
+    <link th:href="@{./bootstrap-4/css/bootstrap.min.css}" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <link th:href="@{./css/globals.css}" rel="stylesheet" />
+    <link th:href="@{./css/styleguide_signup.css}" rel="stylesheet" />
+    <link th:href="@{./css/style_signup.css}" rel="stylesheet" />
+    <script th:src="@{/js/main.js}">
+    </script>
+    <title>Sign Up</title>
+</head>
+
+<body class=bg-custom>
+    <!-- inclusione jquery-->
+    <script th:src="@{/jquery/jquery-3.7.0.com.js}" th:inline="javascript">
+    </script>
+
+    <div class="sign-up">
+        <div class="div">
+            <div class="text-wrapper">Registrazione</div>
+            <img class="group-traced" src="img/group-1-traced.svg" />
+            <div class="container">
+                <div class="signup_cont">
+                    <div class="form-row form-row_new label under_label">
+                        <label for="username" style="color: white;">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter username here"
+                            style="color:white">
+                    </div>
+                    <div class="form-row form-row_new label under_label user_pass_old">
+                        <label for="email" style="color: white;">E-mail</label>
+                        <input type="text" id="email" name="email" placeholder="Enter e-mail here"
+                            style="color:white">
+                    </div>
+                    <div class="form-row form-row_new label under_label user_pass_new">
+                        <label for="password" style="color: white;">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter new password here"
+                            style="color:white">
+                    </div>
+                </div>
+            </div>
+            <div class="badge">
+                <div class="content">
+                    <div class="label">Cliente</div>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div class="content">
+                    <div class="label">PT</div>
+                </div>
+            </div>
+            <button class="signup_button" type="submit" onclick="redirectToLoginPage()">Iscriviti ora</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    function redirectToLoginPage() {
+        window.location.href = "/login";
+    }
+</script>
+
+</html>

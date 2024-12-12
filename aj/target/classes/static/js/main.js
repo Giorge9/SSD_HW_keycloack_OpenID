@@ -1,6 +1,3 @@
-//variabili per la selezione della classe e del robot
-var classe = null;
-var robot = null;
 //variabili per il login
 var user = null;
 var password = null;

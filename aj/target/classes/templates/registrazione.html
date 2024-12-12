@@ -32,8 +32,7 @@
                     </div>
                     <div class="form-row form-row_new label under_label user_pass_old">
                         <label for="email" style="color: white;">E-mail</label>
-                        <input type="text" id="email" name="email" placeholder="Enter e-mail here"
-                            style="color:white">
+                        <input type="text" id="email" name="email" placeholder="Enter e-mail here" style="color:white">
                     </div>
                     <div class="form-row form-row_new label under_label user_pass_new">
                         <label for="password" style="color: white;">Password</label>
@@ -41,26 +40,53 @@
                             style="color:white">
                     </div>
                 </div>
-            </div>
-            <div class="badge">
-                <div class="content">
-                    <div class="label">Cliente</div>
+                <div class="form-row form-row_new label under_label">
+                    <label for="userType" style="color: white;">Tipo di Utente</label>
+                    <input type="radio" id="userTypePT" name="userType" value="PT">
+                    <label for="userTypePT" style="color: white;">PT</label>
+                    <input type="radio" id="userTypeCliente" name="userType" value="Cliente">
+                    <label for="userTypeCliente" style="color: white;">Cliente</label>
                 </div>
             </div>
-            <div class="content-wrapper">
-                <div class="content">
-                    <div class="label">PT</div>
-                </div>
-            </div>
-            <button class="signup_button" type="submit" onclick="redirectToLoginPage()">Iscriviti ora</button>
+            <button class="signup_button" type="submit" th:onclick="redirectToPagemainlogin()">Iscriviti ora</button>
+            </form>
         </div>
     </div>
 
 </body>
 <script>
-    function redirectToLoginPage() {
-        window.location.href = "/login";
+    function redirectToPagemainlogin() {
+        var user = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var email = document.getElementById("email").value;
+        var usertype = document.querySelector('input[name="userType"]:checked');
+
+        if (user && password && email && usertype) {
+            alert("registrazione effettuata con successo");
+
+            $.ajax({
+                url: '/signup-variabiles',
+                type: 'POST',
+                data: {
+                    var1: user,
+                    var2: password,
+                    var3: email,
+                    var4: usertype.value  // Aggiungi .value per ottenere il valore della checkbox
+                },
+                success: function (response) {
+                    console.log(response);
+                    window.location.href = "/login";
+                },
+                error: function (error) {
+                    console.error(error);
+                    alert("Si è verificato un errore durante la registrazione.");
+                }
+            });
+        } else {
+            alert("Inserisci username, password, email e seleziona il tipo di utente.");
+        }
     }
 </script>
+
 
 </html>

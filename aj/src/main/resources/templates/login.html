@@ -12,7 +12,7 @@
 
 <body class=bg-custom>
     <!-- inclusione jquery-->
-    <script th:src="@{/jquery/jquery-3.7.0.com.js}"  th:inline="javascript">
+    <script th:src="@{/jquery/jquery-3.7.0.com.js}" th:inline="javascript">
     </script>
 
 
@@ -20,26 +20,85 @@
         <h1 style="color: white;font-size: 36px; text-align: center; margin-top: 10px;">Welcome</h1>
         <div class="login_cont">
             <div class="form-row form-row label under_label ">
-            <label for="username" style="color: white;">Username</label>
-            <input type="text" id="username" maxlength="20" name="username" placeholder="Enter username here" style="color:white ">
-            <div class="user_pass">
-            <label for="password" style="color: white;">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter password here" style="color:white ">
-            
-            <div>
+                <label for="username" style="color: white;">Username</label>
+                <input type="text" id="username" maxlength="20" name="username" placeholder="Enter username here"
+                    style="color:white ">
+                <div class="user_pass">
+                    <label for="password" style="color: white;">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password here"
+                        style="color:white ">
 
+                    <div>
+
+                    </div>
+                    <div class="button_dist">
+                        <button class="login-button" type="submit" th:onclick="redirectToMainAreaPt()">Login PT</button>
+                        <button class="login-button" type="submit" th:onclick="redirectToMainAreaClient()">Login
+                            Clienti</button>
+                    </div>
+                </div>
             </div>
-            <div class = "button_dist">
-                <button class="login-button" type="submit" th:onclick="redirectToPagemainlogin(); saveLoginData()">Login</button>
-            </div>
-        </div>   
-        </div>
         </div>
 
 
-        
+
 </body>
+<script>
+    function redirectToMainAreaPt() {
+        var user = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
 
+        if (user && password) {
+            alert("login effettuato con successo");
+
+            $.ajax({
+                url: '/pt_login-variabiles',
+                type: 'POST',
+                data: {
+                    var1: user,
+                    var2: password,  // Aggiungi .value per ottenere il valore della checkbox
+                },
+                success: function (response) {
+                    console.log(response);
+                    window.location.href = "/area_personale_pt";
+                },
+                error: function (error) {
+                    console.error(error);
+                    alert("Si è verificato un errore durante la registrazione.");
+                }
+            });
+        } else {
+            alert("Inserisci username, password.");
+        }
+    }
+
+    function redirectToMainAreaClient() {
+        var user = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (user && password) {
+            alert("login effettuato con successo");
+
+            $.ajax({
+                url: '/client_login-variabiles',
+                type: 'POST',
+                data: {
+                    var1: user,
+                    var2: password,  // Aggiungi .value per ottenere il valore della checkbox
+                },
+                success: function (response) {
+                    console.log(response);
+                    window.location.href = "/area_personale_cliente";
+                },
+                error: function (error) {
+                    console.error(error);
+                    alert("Si è verificato un errore durante la registrazione.");
+                }
+            });
+        } else {
+            alert("Inserisci username, password.");
+        }
+    }
+</script>
 
 </html>
-

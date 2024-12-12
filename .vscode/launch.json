@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-App<aj>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.h5.App",
+            "projectName": "aj",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

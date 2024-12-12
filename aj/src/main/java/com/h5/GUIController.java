@@ -1,37 +1,45 @@
 package com.h5;
 
-
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.stereotype.Controller;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 
 @Controller
 public class GUIController {
 
-    @GetMapping("/main")
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
+    /*@GetMapping("/main")
     public String mainPage() {
         return "main"; // Nome del template Thymeleaf per la main.html
-    }
- 
+    }*/
+
     @GetMapping("/login")
     public String loginPage() {
         return "login"; // Nome del template Thymeleaf per la login.html
     }
 
-    @GetMapping("/registrazione")
-    public String SignUpPage() {
-        return "registrazione"; // Nome del template Thymeleaf per la registrazione.html
-    }
-
     @GetMapping("/area_personale_pt")
-    public String areaPersonalePTPage() {
+    public String areaPersonalePTPage(Model model, @AuthenticationPrincipal OidcUser user) {
+        model.addAttribute("email", user.getEmail());
         return "area_personale_pt"; // Nome del template Thymeleaf per la area_personale_pt.html
     }
+
+    @GetMapping("/area_personale_cliente")
+    public String areaPersonaleCustomerPage(Model model, @AuthenticationPrincipal OidcUser user) {
+        model.addAttribute("email", user.getEmail());
+        return "area_personale_cliente"; // Nome del template Thymeleaf per la area_personale_cliente.html
+    }
+
+    @GetMapping("/area_comune")
+    public String adminAndUserPage(Model model, @AuthenticationPrincipal OidcUser user) {
+        model.addAttribute("email", user.getEmail());
+        return "area_comune"; // Nome del template Thymeleaf per la area_comune.html
+    }
+
 }
